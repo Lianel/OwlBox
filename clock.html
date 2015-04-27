@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Часы на Web-странице</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-
+1251">
+<div align="center">
+<div style="background-color:#ffffff;width: 20%">
+<script language="javascript" type="text/javascript"><!--
+var d = new Date();
+
+var day=new Array("Воскресенье","Понедельник","Вторник",
+"Среда","Четверг","Пятница","Суббота");
+
+var month=new Array("января","февраля","марта","апреля","мая","июня",
+"июля","августа","сентября","октября","ноября","декабря");
+
+document.write(day[d.getDay()]+" " +d.getDate()+ " " + month[d.getMonth()]
++ " " + d.getFullYear() + " г.");
+//--></script>
+</div>
+<script type="text/javascript">
+<!--
+var clock1;
+function f_start() { // Запускаем таймер
+clock1 = setInterval("f_time();", 1000);
+document.getElementById("div_start").style.display = "none";
+document.getElementById("div_end").style.display = "block";
+}
+function f_time() { // Считываем текущее время
+var d = new Date();
+var msg = (d.getHours()<10) ? "0" : "";
+msg += d.getHours();
+msg += (d.getMinutes()<10) ? ":0" : ":";
+msg += d.getMinutes();
+msg += (d.getSeconds()<10) ? ":0" : ":";
+msg += d.getSeconds();
+document.getElementById("div1").innerHTML = msg;
+}
+function f_end() { // Останавливаем таймер
+clearInterval(clock1);
+document.getElementById("div_start").style.display = "block";
+document.getElementById("div_end").style.display = "none";
+}
+//-->
+</script>
+</head>
+<body onload="f_start();" background="http://imhocloud.com/images/2015/04/10/4964358049766.jpg" link="red" vlink="red">
+<div align="center">
+<div style="background-color:#ffffff;width: 20%">
+<div id="div1"></div>
+<div id="div_start">
+<input type="button" value="Запустить часы" onclick="f_start();">
+</div>
+<div id="div_end">
+<input type="button" value="Остановить часы" onclick="f_end();">
+</div>
+</div>
+</div>
+</body>
+</html>
